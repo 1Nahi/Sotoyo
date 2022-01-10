@@ -30,11 +30,6 @@ async def creator(ctx):
   await ctx.channel.send(embed=e)
 
 
-@bot.command() 
-async def pingme(ctx):
-  memberx = '<@854022191809036288>'
-  while(True):
-    await ctx.channel.send(f'Hi {memberx}') 
 
 @bot.command(help='Shows the User\'s avatar[av].',aliases=['av'])
 async def avatar(ctx, *,  avamember : discord.Member=None):
