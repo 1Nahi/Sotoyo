@@ -1,8 +1,11 @@
 import discord 
+import random 
+import operator
 from discord.ext import commands 
 import os 
 import time
 import asyncio
+from keep_alive import keep_alive 
 
 bot= commands.Bot(command_prefix='!',case_insensitive=True)
 
@@ -11,7 +14,7 @@ bot= commands.Bot(command_prefix='!',case_insensitive=True)
 @bot.event
 async def on_ready():
   print(f'logged in as {bot.user}')
-  await bot.change_presence(activity=discord.Game(name='?help'))
+  await bot.change_presence(activity=discord.Game(name='Sotoyo\'s my best friend.'))
   
   
 @bot.command(help='Pong!')
@@ -21,14 +24,96 @@ async def ping(ctx):
      await msg.edit(content=f'Pong!``` In {round(bot.latency * 1000)}ms```')
 
 
+@bot.command(pass_context=True)
+async def hug(ctx,member : discord.Member):
+  x = random.randint(1,2)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} hugs {member.name}',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/CnTxN4UrdysAAAAC/boo-hug.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} hugs {member.name}',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/GdJRGf60YN4AAAAC/hugs-sending-virtual-hugs.gif')
+    await ctx.channel.send(embed=e2)
+
+@bot.command(pass_context=True)
+async def smile(ctx,member : discord.Member):
+  x = random.randint(1,2)
+  if x==1:
+    e = discord.Embed(title=f'{member.name} just smiled',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/6xwjsmMIAIoAAAAS/happy-happy-dog.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{member.name} just smiled',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/G6a837fJZr8AAAAS/smile-creepy-smile.gif')
+    await ctx.channel.send(embed=e2)
+
+
+
+@bot.command(pass_context=True)
+async def bye(ctx):
+  x = random.randint(1,4)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} walks away',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/t_eE3WzcbxkAAAAC/pepe-walk-away.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} walks away',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/uICGiTPlUpgAAAAS/cat-leaving.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} walks away',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/OgOuNn3KVIsAAAAS/the-office-walk-away.gif')
+    await ctx.channel.send(embed=e3)
+  if x==4:
+    e4 = discord.Embed(title=f'{ctx.author.name} walks away',description='',color = 10181046)
+    e4.set_image(url='https://c.tenor.com/6nV3tLM6MhEAAAAS/spongebob-annoyed-spongebob-walking-away.gif')
+    await ctx.channel.send(embed=e4)
+
+@bot.command(pass_context=True)
+async def confused(ctx):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} is confused',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/bzjnbmmmbJQAAAAd/what-omg.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} is confused',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/wamL_NeO8-wAAAAS/bunnies-what.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} is confused',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/5x6I0E8F2MoAAAAC/awkward-blonde.gif')
+    await ctx.channel.send(embed=e3)
+
+    
+@bot.command(pass_context=True)
+async def amazed(ctx,member : discord.Member):
+  x = random.randint(1,4)
+  if x==1:
+    e = discord.Embed(title=f'{member.name} is amazed',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/itE3iCDXZE4AAAAS/wow-very-dangerous-wow-berry-dangerous.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{member.name} is amazed',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/AneNA8nYx1EAAAAS/wow-oh-wow.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{member.name} is amazed',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/oMoTRF26A08AAAAS/wow-wow-cat.gif')
+    await ctx.channel.send(embed=e3)
+  if x==4:
+    e4 = discord.Embed(title=f'{member.name} is amazed',description='',color = 10181046)
+    e4.set_image(url='https://c.tenor.com/BmCbsCskdA4AAAAS/omg-oh-my-god.gif')
+    await ctx.channel.send(embed=e4)
+
 
 @bot.command(pass_context=True,help='Shows Creator\'s info.[cr]',aliases=['cr'])
 async def creator(ctx):
   rid='<@821068903794737214>'
-  e =  discord.Embed(title='Creator:',description=f'||{rid}||',color=discord.Color.red())
-  e.set_thumbnail(url='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSOwWVi9DS25CaBpNORNEKEsTCIxJ1uwcCqNI4_xe-EUTB769lp')
+  e =  discord.Embed(title='Creator:',description=f'||{rid}||',color=discord.Color.blurple())
+  e.set_thumbnail(url='https://images-ext-2.discordapp.net/external/H6k_2FA3i947K8mixk8U3EFUVYBn9Sv2mvjh-RtwNG8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/821068903794737214/900c3fa3ebcff566bc68329602542e5a.webp')
   await ctx.channel.send(embed=e)
-
 
 
 @bot.command(help='Shows the User\'s avatar[av].',aliases=['av'])
@@ -37,9 +122,8 @@ async def avatar(ctx, *,  avamember : discord.Member=None):
     e = discord.Embed(title=f'{avamember.name}',description='',color=discord.Color.blurple())
     e.set_image(url=userAvatarUrl)
     await ctx.channel.send(embed=e)
-    
-    
-  
+
+
 @bot.command(pass_context=True,help='Shows Server\'s name.[sn]',aliases=['sn'])
 async def server_name(ctx):
   e = discord.Embed(title=f'{ctx.author.guild.name}',description='',color=discord.Color.blurple())
@@ -200,6 +284,6 @@ async def unmute(ctx, member: discord.Member):
 
 
 
-
+keep_alive()
   
 bot.run(os.getenv("Token"))
