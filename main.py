@@ -1,4 +1,5 @@
 import discord 
+from discord import Embed
 import random 
 import operator
 from discord.ext import commands 
@@ -8,6 +9,7 @@ import asyncio
 from keep_alive import keep_alive 
 
 bot= commands.Bot(command_prefix='!',case_insensitive=True)
+
 
 
 
@@ -35,6 +37,115 @@ async def hug(ctx,member : discord.Member):
     e2 = discord.Embed(title=f'{ctx.author.name} hugs {member.name}',description='',color = 10181046)
     e2.set_image(url='https://c.tenor.com/GdJRGf60YN4AAAAC/hugs-sending-virtual-hugs.gif')
     await ctx.channel.send(embed=e2)
+
+@bot.command(pass_context=True)
+async def faint(ctx):
+  x = random.randint(1,2)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} faints',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/-EHbQefJJ_4AAAAS/shocked-faint.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} faints',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/qTkfj0xIlBsAAAAS/elmo-falls.gif')
+    await ctx.channel.send(embed=e2)
+
+@bot.command(pass_context=True)
+async def rude(ctx,member : discord.Member):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} is rude upon {member.name}',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/O3Vo2S-Xm-QAAAAS/home-alone.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} is rude upon {member.name}',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/rqY-hzlUJokAAAAC/shut-up.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} is rude upon {member.name}',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/Cktt9J4kTzIAAAAS/no-one-cares-i-dont-care.gif')
+    await ctx.channel.send(embed=e3)
+
+@bot.command(pass_context=True)
+async def angry(ctx):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} is angry',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/u-1jz7ttHhEAAAAS/angry-panda-rage.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} is angry',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/kpQ-_wIRCEAAAAAS/rage-mad.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} is angry',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/0IEk-u1XpG0AAAAS/angry-dog.gif')
+    await ctx.channel.send(embed=e3)
+
+@bot.command(pass_context=True)
+async def slap(ctx,member : discord.Member):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} slaps {member.name}',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/QhsQeRQypMUAAAAS/slap-bear-slap.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} slaps {member.name}',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/PTONt_7DUTgAAAAS/batman-slap-robin.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} slaps {member.name}',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/vr7tTAEuj1QAAAAS/baka-slap.gif')
+    await ctx.channel.send(embed=e3)
+
+
+
+@bot.command(pass_context=True)
+async def kill(ctx,member : discord.Member):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} kills {member.name}',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/c9KEUCrTarUAAAAS/home-alone-macaulay-culkin.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} kills {member.name}',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/cjQBQCbyr2EAAAAS/killed-em-hold-this.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} kills {member.name}',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/tyhIZQFXNuEAAAAS/watch-out.gif')
+    await ctx.channel.send(embed=e3)
+@bot.command(pass_context=True)
+async def die(ctx):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} dies',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/B-x2kXqxJp8AAAAS/dies-over.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} dies',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/X13wwMFZN2YAAAAS/dies-cat.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} dies',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/Z7rthl6tdOUAAAAd/dies.gif')
+    await ctx.channel.send(embed=e3)
+
+@bot.command(pass_context=True)
+async def love(ctx,member : discord.Member):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} loves {member.name}',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/1hyzQj_f5PgAAAAS/kitten-love.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} loves {member.name}',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/OfSp4Rz0JNoAAAAS/cat-hug.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} loves {member.name}',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/IXdTojNOs9MAAAAS/hey-i-love-you.gif')
+    await ctx.channel.send(embed=e3)
 
 @bot.command(pass_context=True)
 async def smile(ctx,member : discord.Member):
@@ -71,6 +182,26 @@ async def bye(ctx):
     await ctx.channel.send(embed=e4)
 
 @bot.command(pass_context=True)
+async def scream(ctx):
+  x = random.randint(1,4)
+  if x==1:
+    e = discord.Embed(title=f'{ctx.author.name} just screamed',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/3sscVvNm9zkAAAAS/controlmypc-cat.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'{ctx.author.name} just screamed',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/0u4wlX0NbAIAAAAS/home-alone-scream.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'{ctx.author.name} just screamed',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/bQuWIFsZWEgAAAAS/thurston-waffles-meow.gif')
+    await ctx.channel.send(embed=e3)
+  if x==4:
+    e4 = discord.Embed(title=f'{ctx.author.name} just screamed',description='',color = 10181046)
+    e4.set_image(url='https://c.tenor.com/_KEXdS8RXYoAAAAS/kermit-freaking-out.gif')
+    await ctx.channel.send(embed=e4)
+
+@bot.command(pass_context=True)
 async def confused(ctx):
   x = random.randint(1,3)
   if x==1:
@@ -86,7 +217,23 @@ async def confused(ctx):
     e3.set_image(url='https://c.tenor.com/5x6I0E8F2MoAAAAC/awkward-blonde.gif')
     await ctx.channel.send(embed=e3)
 
-    
+@bot.command(pass_context=True)
+async def u(ctx):
+  x = random.randint(1,3)
+  if x==1:
+    e = discord.Embed(title=f'No U',description='',color = 16705372)
+    e.set_image(url='https://c.tenor.com/QXVs4QWLlzkAAAAS/spider-man.gif')
+    await ctx.channel.send(embed=e)
+  if x==2:
+    e2 = discord.Embed(title=f'No U',description='',color = 10181046)
+    e2.set_image(url='https://c.tenor.com/MmtNHyUVtVwAAAAS/no-u-reverse-card.gif')
+    await ctx.channel.send(embed=e2)
+  if x==3:
+    e3 = discord.Embed(title=f'No U',description='',color = 10181046)
+    e3.set_image(url='https://c.tenor.com/teCGcZZUcw4AAAAS/no-u-no.gif')
+    await ctx.channel.send(embed=e3)
+
+
 @bot.command(pass_context=True)
 async def amazed(ctx,member : discord.Member):
   x = random.randint(1,4)
@@ -112,7 +259,7 @@ async def amazed(ctx,member : discord.Member):
 async def creator(ctx):
   rid='<@821068903794737214>'
   e =  discord.Embed(title='Creator:',description=f'||{rid}||',color=discord.Color.blurple())
-  e.set_thumbnail(url='https://images-ext-2.discordapp.net/external/H6k_2FA3i947K8mixk8U3EFUVYBn9Sv2mvjh-RtwNG8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/821068903794737214/900c3fa3ebcff566bc68329602542e5a.webp')
+  e.set_thumbnail(url='https://images-ext-1.discordapp.net/external/iWNWiznZ9ApqbCk3LK3bLRkcGMeF2QegV23dLow6aK8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/821068903794737214/c5f325c22e841ae0a7598d1cdbf7df1a.webp')
   await ctx.channel.send(embed=e)
 
 
